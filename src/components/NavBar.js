@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import Logo from '../assets/logoSecund.png';
+import CartWidget from "./CartWidget";
 
 function NavBar() {
     const [isActive, setisActive] = React.useState(false);
@@ -42,8 +43,8 @@ function NavBar() {
           <div className="navbar-end">
             <div className="navbar-item">
               <div className="buttons">
-              <button class="button is-primary is-rounded"><i class="fas fa-shopping-cart"></i></button>
-              
+              <CartWidget/>
+
                 <a  className="button is-danger"  >
                   <strong>Login</strong>
                 </a >
