@@ -34,10 +34,16 @@ function NavBar() {
         >
           <div className="navbar-start is-primary">
             <a  className="navbar-item is-primary" >
+              <strong>
               Inicio
+              </strong>
+              
             </a >
             <a  className="navbar-item">
+              
+              <strong>
               Productos
+              </strong>
             </a >
           </div>
           <div className="navbar-end">

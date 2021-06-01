@@ -1,11 +1,11 @@
 import React from "react";
 
-function ItemListContainer() {
+function ItemListContainer({alert}) {
   return (
     <div className="container">
       <div class="notification is-primary  has-text-centered">
         
-       <strong>Aca va el catalogo</strong>
+       <strong>{alert}</strong>
        
       </div>
     </div>

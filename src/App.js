@@ -9,7 +9,7 @@ function App() {
    
         <Navbar/>
         <br/>
-        <ItemListContainer/>
+        <ItemListContainer alert="Catalogo aca"/>
        
     </div>
   );
