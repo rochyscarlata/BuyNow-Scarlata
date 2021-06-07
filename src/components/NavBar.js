@@ -46,10 +46,13 @@ function NavBar() {
               </strong>
             </a >
           </div>
+         
           <div className="navbar-end">
+          
             <div className="navbar-item">
+            
               <div className="buttons">
-              <CartWidget/>
+           
 
                 <a  className="button is-danger"  >
                   <strong>Login</strong>
@@ -59,6 +62,14 @@ function NavBar() {
   
            
           </div>
+        </div>
+        <div className="navbar-end">
+          <div className="navbar-brand">
+          <a class="navbar-item">
+          <CartWidget/>
+            </a>
+         
+        </div>
         </div>
       </nav>
     )
