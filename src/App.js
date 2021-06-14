@@ -1,17 +1,17 @@
 import logo from './logo.svg';
 import './App.css';
 import Navbar from './components/NavBar'
-import ItemListContainer from './components/Item/ItemListContainer';
+import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 
 function App() {
   return (
-    <div className="App">
+    <>
    
         <Navbar/>
         <br/>
-        <ItemListContainer alert="Catalogo aca"/>
+        <ItemListContainer greetings="Catalogo aca"/>
        
-    </div>
+    </>
   );
 }
 
