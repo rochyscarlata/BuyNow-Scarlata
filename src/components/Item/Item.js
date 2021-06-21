@@ -1,11 +1,13 @@
 import React from "react";
 import ItemCount from "../ItemCount/ItemCount"
+import { Link } from 'react-router-dom';
+
 
  const Item = ({ id, name, description, price, pictureUrl }) => {
   return (
     <>
    
-      
+      <Link to={`/item/${id}`}>
       <div class="card-content has-text-centered">
         <figure class="image is-128x128 is-square	is-inline-block">
           <img className="imagen" src={pictureUrl} />
@@ -17,7 +19,7 @@ import ItemCount from "../ItemCount/ItemCount"
         <p>{price}</p>
       </div>
       <ItemCount initial={1} stock={10} />
-    
+      </Link>
     </>
   );
 };

@@ -1,15 +1,13 @@
 import logo from './logo.svg';
 import './App.css';
-import Navbar from './components/NavBar'
-import ItemListContainer from './components/ItemListContainer/ItemListContainer';
+import Main from './components/Main/Main';
 
 function App() {
   return (
     <>
    
-        <Navbar/>
-        <br/>
-        <ItemListContainer greetings="Catalogo aca"/>
+        <Main/>
+        
        
     </>
   );
