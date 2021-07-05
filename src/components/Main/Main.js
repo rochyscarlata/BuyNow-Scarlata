@@ -9,7 +9,7 @@ function Main() {
         <BrowserRouter>
       <NavBar />
       <Switch>
-        <Route exact path="/">
+        {/* <Route exact path="/">
           <ItemListContainer greeting="Nuestros productos:" />
         </Route>
         <Route path="/category/:id">
@@ -17,7 +17,7 @@ function Main() {
         </Route>
         <Route path="/item/:id">
           <ItemDetailContainer />
-        </Route>
+        </Route> */}
       </Switch>
     </BrowserRouter>
     )
