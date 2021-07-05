@@ -1,55 +1,84 @@
-import React, { useEffect, useState } from 'react'
-import ItemDetail from "../ItemDetail/ItemDetail";
+import React, { useState, useEffect } from 'react';
+import ItemDetail from '../ItemDetail/ItemDetail';
+import picture1 from '../../assets/Productos/maceta1.jpg';
+import picture2 from '../../assets/Productos/maceta2.jpg';
 import { useParams } from 'react-router-dom';
 
-function ItemDetailContainer() {
-    const { id } = useParams();
-    const getItems = () => {
-        return new Promise((resolve, reject) => {
-            setTimeout(() => {
-                let itemList = [
-                    {   
-                        id: "AA00",
-                        title: "Producto1",
-                        description: "Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Maecenas consectetur.",
-                        price: 500,
-                        pictureUrl: 'https://via.placeholder.com/300x200?text=ImagePlaceholder',
-                        category: "aa00"
-                    },
-                    {
-                        id: "AA02",
-                        title: "Producto2",
-                        description: "Morbi et venenatis purus. Fusce est tellus, maximus in elit sed, egestas tincidunt sem. Nullam.",
-                        price: 1270,
-                        pictureUrl: 'https://via.placeholder.com/300x200?text=ImagePlaceholder',
-                        category: "aa00"
-                    },
-                    {
-                        id: "AB02",
-                        title: "Producto3",
-                        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vel nibh interdum, dignissim arcu quis.",
-                        price: 3555,
-                        pictureUrl: 'https://via.placeholder.com/300x200?text=ImagePlaceholder',
-                        category: "aa01"
-                    }
-                ]
 
-                const itemData = itemList.find((item) => item.id === id);
-                resolve(itemData);
-            }, 1000);
-
-        })
+function ItemDetailContainer () {
+  const { id } = useParams();
+  const [items, setItems] = useState([]);
+  const [isLoading, setisLoading] = useState(true);
+  const productos = [
+    {
+      id: 1,
+      title: 'Producto 1',
+      description: 'Descripcion del producto 1',
+      price: 200,
+      pictureUrl: picture1,
+      stock: 4,
+      category: 1
+    },
+    {
+      id: 2,
+      title: 'Producto 2',
+      description: 'Descripcion del producto 2',
+      price: 200,
+      pictureUrl: picture2,
+      stock: 5,
+      category: 1
+    },
+    {
+      id: 3,
+      title: 'Producto 3',
+      description: 'Descripcion del producto 3',
+      price: 200,
+      pictureUrl: picture2,
+      stock: 2,
+      category: 2
     }
-    const [item, setItem] = useState({});
-    useEffect(() => {
-        getItems().then(response => {
-            setItem(response);
-        })
-    }, [])
+  ];
 
-    return (
-        <ItemDetail item={item} />
-    )
+  const getItems = new Promise((resolve, reject) => {setTimeout(() => resolve(productos), 1000);});
+
+  useEffect(() => {
+    getItems
+      .then(
+        (data) => {
+          if(id){
+            const found = data.find(element => element.id == id);
+            setItems(found);
+            if(found){ setisLoading(false); }            
+          }
+        },
+        (error) => {
+          //Paso por aquí si la promesa fue rechazada
+          console.log(
+            "la promesa fue directamente RECHAZADA"
+          );
+        }
+        )
+        .catch((error) => {
+          console.log(error.message);
+          return "Valor por defecto";
+        });
+    });
+  
+  return (
+    <div className="itemList">
+      {isLoading ? <p>Cargando...</p> : 
+        <ItemDetail
+          key={items.id}
+          id={items.id}
+          title={items.title}
+          description={items.description}
+          price={items.price}
+          pictureUrl={items.pictureUrl}
+          stock={items.stock}
+        />
+      }
+    </div>
+  );
 }
-
-export default ItemDetailContainer
+  
+export default ItemDetailContainer;

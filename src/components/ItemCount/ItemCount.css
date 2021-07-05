@@ -1,6 +1,14 @@
 .cantidad{
-    padding-right: 10px ;
+  max-width: 50px;
+  text-align: center;
+  background: #ececec;
+  border: 1px solid;
 
-  padding-left: 10px ;
+}
+.btn-agregar{
+  justify-content: center;
 
+}
+.input-group {
+  justify-content: center;
 }

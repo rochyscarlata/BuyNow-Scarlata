@@ -1,28 +1,51 @@
-import React from "react";
+import React, {useContext} from "react";
 import ItemCount from "../ItemCount/ItemCount"
 import { Link } from 'react-router-dom';
+import CartContext from '../../context/CartContext';
 
+import { Card } from "react-bootstrap";
 
- const Item = ({ id, title, description, price, pictureUrl }) => {
+ const Item = ({ id, title, description, price,stock, pictureUrl }) => {
+  const { addToCart } = useContext(CartContext);
+
+  function onAdd(cantidad){
+    let addItem = {
+        item: {
+            id: id,
+            title: title,
+            description: description,
+            price: price,
+            pictureUrl: pictureUrl,
+            stock: stock
+        },
+        quantity: cantidad
+    };
+    addToCart(addItem);
+}
   return (
-    
-      <div class="column ">
-      <div className="card-equal-height">
-      <div class="card-content has-text-centered">
-        <figure class="image is-128x128 is-square	is-inline-block">
-          <img className="imagen" src={pictureUrl} />
-        </figure>
-      </div>
-      <div class="card-content">
-        <h4 className="title is-4 has-text-centered">{title}</h4>
-        <p>{description}</p>
-        <p>${price}</p>
-      </div>
-      <ItemCount initial={1} stock={10} />
-      </div>
-      </div>
-     
-    
+    <>
+   
+
+   
+    <Card style={{ width: '15rem' }} className="text-center">
+    <Link to={`/item/${id}`} className="links">
+  <Card.Img variant="top" src={pictureUrl} />
+  </Link>
+  <Card.Body>
+    <Card.Title>{title}</Card.Title>
+    <Card.Text>
+      {description}
+    </Card.Text>
+    <Card.Text>
+      ${price}
+    </Card.Text>
+ 
+    <ItemCount stock={stock} initial={1} onAdd={onAdd} />
+  </Card.Body>
+</Card>
+
+</>
+ 
   );
 };
 
