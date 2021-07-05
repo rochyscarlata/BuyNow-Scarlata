@@ -12,7 +12,9 @@ function Main() {
         <Route exact path="/">
           <ItemListContainer greeting="Nuestros productos:" />
         </Route>
-       
+        <Route path="/category/:id">
+          <ItemListContainer greeting="Nuestros productos:" />
+        </Route>
         <Route path="/item/:id">
           <ItemDetailContainer />
         </Route>

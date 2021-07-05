@@ -8,7 +8,7 @@ function ItemDetailContainer() {
         return new Promise((resolve, reject) => {
             setTimeout(() => {
                 let itemList = [
-                    {
+                    {   
                         id: "AA00",
                         title: "Producto1",
                         description: "Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Maecenas consectetur.",

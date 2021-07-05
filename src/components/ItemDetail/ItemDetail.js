@@ -2,15 +2,12 @@ import React from 'react'
 import { Link } from "react-router-dom";
 
 function ItemDetail({ item }) {
-    function handleReturn(){
-        
-    }
+    
     return (
         item.title ?
         
-      <div className="container is-max-desktop">
-        <div className="container ">
-          <div class="columns is-mobile is-multiline">
+      <div className="container ">
+          <div class="columns  is-multiline">
             <div class="column animate__animated animate__zoomInUp">
               <figure className="image ">
                 <img src={item.pictureUrl}  alt={`${item.title} image`}/>
@@ -36,7 +33,7 @@ function ItemDetail({ item }) {
               </div>
               <nav class="level is-mobile">
                 <div class="level-left">
-                  <Link to="/heroes" class="level-item" aria-label="undo" onclick={handleReturn}>
+                  <Link to="/heroes" class="level-item" aria-label="undo" >
                     <span class="icon is-small">
                       <i class="fas fa-undo" aria-hidden="true"></i>
                     </span>
@@ -46,7 +43,6 @@ function ItemDetail({ item }) {
               </nav>
             </div>
           </div>
-        </div>
         </div> :
   
   <h2 className="loading">Cargando</h2> 

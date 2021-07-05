@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import productos from '../Produc'
 import Item from './Item'
-export const ItemList = () => {
+ const ItemList = ({ items }) => {
 
     const [producto, setProducto] = useState([]);
   
@@ -25,9 +25,8 @@ export const ItemList = () => {
 
     return (
         <div className="container is-max-desktop">
-          <div class="columns is-multiline is-3">
-      <div class="column is-one-quarter">
-      <div className=" card card-equal-height">
+             <div class="columns is-3 is-multiline ">
+
             {
                 productos.map(x => (
                     <Item 
@@ -39,10 +38,10 @@ export const ItemList = () => {
                     />
                 ))
             }
-            </div>
-      </div>
-     
-      </div>
+                  </div>
+
         </div>
     )
 }
+
+export default ItemList
