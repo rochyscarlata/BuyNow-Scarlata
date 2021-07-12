@@ -38,8 +38,9 @@ function Cart() {
                                 </thead>
                                 <tbody>
                                     {cart.map(producto => {
+                                        const image = require(`../../assets/Productos/${producto.item.pictureUrl}`).default;
                                         return <tr className="cartItem" key={producto.item.id}>
-                                            <td className="product-thumbnail"><img src={producto.item.pictureUrl} alt="producto" /></td>
+                                            <td className="product-thumbnail"><img src={image} alt="producto" /></td>
                                             <td className="product-name">{producto.item.title}</td>
                                             <td className="product-price">{producto.item.price}</td>  
                                             <td className="product-quantity">{producto.quantity}</td>

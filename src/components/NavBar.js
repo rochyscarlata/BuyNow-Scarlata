@@ -9,10 +9,11 @@ import {
 import Logo from "../assets/logoSecund.png";
 import CartWidget from "./CartWidget";
 import { NavLink, Link } from "react-router-dom";
+import './Nav.css';
 
 function NavBar() {
   return (
-    <Navbar bg="light" expand="lg">
+    <Navbar bg="white" expand="lg">
       <Navbar.Brand href="/">
         <img src={Logo} alt="logo" width="150" height="40" />
       </Navbar.Brand>
@@ -21,9 +22,9 @@ function NavBar() {
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
           <Nav.Link href="/" activeClassName="active">Inicio</Nav.Link>
-          <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-            <NavDropdown.Item href="/category/1">Bazar</NavDropdown.Item>
-            <NavDropdown.Item href="/category/2">
+          <NavDropdown title="Categorias" id="basic-nav-dropdown">
+            <NavDropdown.Item href="/category/bazar">Bazar</NavDropdown.Item>
+            <NavDropdown.Item href="/category/decoInterior">
               Deco de interior
             </NavDropdown.Item>
           </NavDropdown>
@@ -34,7 +35,7 @@ function NavBar() {
             Carrito
           </NavLink>
         </Nav>
-        <Button variant="dark">
+        <Button className="btn-carrito" >
         <CartWidget />
         </Button>
         </Navbar.Collapse>

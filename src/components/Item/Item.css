@@ -2,3 +2,12 @@
 .links{
     text-decoration: none !important;
 }
+
+.cardImage{
+    height: auto !important;
+    width:100%;
+}
+.card{
+    width: 15rem !important;
+    min-width:min-content;
+}

@@ -7,7 +7,8 @@ import CartContext from '../../context/CartContext';
 
 function ItemDetail ({id, title, description, price, pictureUrl, stock}) {
     const [cartCount, setCartCount] = useState(0);
-    const { addToCart, cart, clear, removeFromCart, isInCart } = useContext(CartContext);
+    const { addToCart} = useContext(CartContext);
+    const image = require(`../../assets/Productos/${pictureUrl}`).default;
 
     function onAdd(cantidad){
         setCartCount(cantidad);
@@ -28,7 +29,7 @@ function ItemDetail ({id, title, description, price, pictureUrl, stock}) {
         <Container className="detalleProducto">
             <Row>
                 <Col> 
-                    <img className="imagenProd" src={pictureUrl} alt="Producto" />
+                    <img className="imagenProd" src={image} alt="Producto" />
                 </Col>
                 <Col>
                     <h2>{title}</h2>
