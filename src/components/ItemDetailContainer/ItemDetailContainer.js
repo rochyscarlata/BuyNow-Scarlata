@@ -23,12 +23,12 @@ function ItemDetailContainer () {
         item.forEach(function agregarId(element, index) {
           element.id = querySnapshot.docs[index].id;
         });
-        const found = item.find(element => element.id == id);
+        const found = item.find(element => element.id === id);
         setItems(found);
         if(found){ setLoading(false); }            
       }
     });
-  }, []);
+  }, [id]);
   
   return (
     <div className="itemList">

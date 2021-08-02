@@ -25,7 +25,7 @@ function ItemListContainer(props) {
         item.forEach(function agregarId(element, index) {
           element.id = querySnapshot.docs[index].id;
         });
-        const found = item.filter((element) => element.category == id);
+        const found = item.filter((element) => element.category === id);
         setItems(found);
         if (found) {
           setLoading(false);

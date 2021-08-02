@@ -1,0 +1,32 @@
+.checkoutTotal {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.checkoutForm {
+    margin-top: 20px;
+    padding: 0 15%;
+}
+.checkoutForm input {
+    margin-bottom: 15px;
+}
+.compraFinalizada {
+    width: 100%;
+}
+.finalizar-tit {
+    margin-bottom: 30px;
+    margin-top: 40px;
+}
+.checkoutTotal b {
+    color: #3c0080;
+}
+#error-checkout{
+    display:none;
+    color: #fb0000;
+    margin-bottom: 5px;
+    margin-top: 10px;
+    text-align: center;
+}
+#error-checkout.active{
+    display:block;
+}

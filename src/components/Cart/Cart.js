@@ -57,6 +57,13 @@ function Cart() {
                     }
                 </Col>
             </Row>
+            {cart.length > 0 &&
+                <Row>
+                    <Col className="text-right mt-4">
+                        <Link to="/checkout"><Button>Finalizar Compra</Button></Link>
+                    </Col>
+                </Row>
+            }
         </Container>
         
     );

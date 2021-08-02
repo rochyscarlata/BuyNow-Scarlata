@@ -7,12 +7,14 @@ import CartContext from '../../context/CartContext';
 
 function ItemDetail ({id, title, description, price, pictureUrl, stock}) {
     const [cartCount, setCartCount] = useState(0);
-    const { addToCart} = useContext(CartContext);
+    // const { addToCart} = useContext(CartContext);
+    const [mostrarMsj, setMostrarMsj] = useState(0);
+    const { addToCart, isInCart } = useContext(CartContext);
     const image = require(`../../assets/Productos/${pictureUrl}`).default;
 
     function onAdd(cantidad){
-        setCartCount(cantidad);
-        let addItem = {
+        setMostrarMsj(1);
+                let addItem = {
             item: {
                 id: id,
                 title: title,
@@ -23,7 +25,13 @@ function ItemDetail ({id, title, description, price, pictureUrl, stock}) {
             },
             quantity: cantidad
         };
-        addToCart(addItem);
+        if(isInCart(addItem.item)){
+            setMostrarMsj(2)
+        }
+        else{
+            setCartCount(cantidad);        
+            addToCart(addItem);
+        }
     }
     return (
         <Container className="detalleProducto">
@@ -35,9 +43,14 @@ function ItemDetail ({id, title, description, price, pictureUrl, stock}) {
                     <h2>{title}</h2>
                     <p>{description}</p>
                     <p>Precio: ${price}</p>
-                    {cartCount >= 1 ? (
+                    
+                    {mostrarMsj !== 0 ? (
                         <>
-                            <p>Agregaste{cartCount} items al carrito</p>
+                            { mostrarMsj === 1 ? (
+                                <p id="mensaje-prod">Fueron agregados {cartCount} items al carrito.</p>
+                            ) : (
+                                <p id="mensaje-prod">El producto ya esta en el carrito.</p>
+                            )}
                             <Link to="/cart" className="mt-2 btn btn-outline-secondary">Terminar compra</Link>
                         </>
                     ) : (
