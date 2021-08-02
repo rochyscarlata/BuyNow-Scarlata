@@ -1,4 +1,4 @@
-# BUYNOW-CURSO CODERHOUSE REACTJS- 
+## BUYNOW-CURSO CODERHOUSE REACTJS- 
 
 El proyecto se basa en una tienda online de decoracion llamada "Buy Now".
 
