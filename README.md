@@ -10,7 +10,7 @@ El proyecto se basa en una tienda online de decoracion llamada "Buy Now".
 ```
 ## Link a la web
 ```
-https://buynow-scarlata.netlify.app/] (https://buynow-scarlata.netlify.app/)
+[https://buynow-scarlata.netlify.app/] (https://buynow-scarlata.netlify.app/)
 ```
 
 ## GIF DE LA WEB
